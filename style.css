@@ -1,0 +1,108 @@
+@media screen and (min-width: 960px){
+    body {
+        width:  960px;
+        margin: 20px auto 100px auto;
+    }
+}
+
+body {
+    font-size: 1em;
+}
+
+div.entry {
+	font-size: 100%;
+	font-family: "Open Sans", sans-serif;
+    border-bottom:  2px #e2e2e2 solid;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition:all 1.5s ease-in-out
+    -o-transition:all 1.5s ease-in-out;
+    transition::all 1.5s ease-in-out;
+}
+
+#addTextForm, div.entry {
+    background: #eee; 
+	color: #f90;
+	padding: 1em;
+}
+
+h2 {
+   margin: 0em; 
+   float: left;
+    width: 97%;
+}
+
+.selected {
+    background: #f90;
+    color: white;
+    font-weight: bold;
+}
+
+img {
+    width: 3%;
+    float: right;
+    margin-top: 1em;
+}
+
+article {
+    width: 100%
+}
+
+
+.first {
+    border-top:  2px #e2e2e2 solid
+}
+
+p {
+    display: none;
+}
+
+p.default {
+    display: block;
+}
+
+ul {
+    padding: 0em;
+}
+
+li {
+    list-style: none;
+    width: 100%;
+}
+
+button {
+    display: inline;
+}
+
+a.addBtn {
+    display: block;
+}
+
+.addBtn {
+    color: #eee;
+    background: #f90;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border: 2px solid #000;
+    border-radius: 5px; 
+}
+
+.addBtn, h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+}
+
+input {
+    width: 100%;
+    border: 1px dotted #666;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    font-size: 1em;
+}
