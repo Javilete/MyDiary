@@ -1,16 +1,128 @@
-@media screen and (min-width: 960px){
+/*
+- max-width is the width of the target display area, e.g. the browser
+- max-device-width is the width of the device's entire rendering area, i.e. the actual device screen
+*/
+
+/*960px*/
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+    /* Styles */ 
     body {
-        width:  960px;
-        margin: 20px auto 100px auto;
+        font-size: 1em;
+    }  
+    
+    h2 {
+        font-size: 1.4em;
+    }
+        
+    img {
+        width: 8%;
+    }
+    
+    footer {
+        background: #eee;
+        float: left;
+        width: 100%;
+        padding: 1em;
+        font-size: 75%;
     }
 }
 
-body {
-    font-size: 1em;
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+    img {
+        width: 8%;
+    }
 }
 
+/* Smartphones (portrait) ----------- */
+/*
+@media only screen and (max-width : 320px) {
+}
+*/
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+    footer {
+        background: #eee;
+        float: left;
+        width: 100%;
+        padding: 1em;
+        font-size: 90%;
+    }
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape) {
+    
+    body {
+        width: 960px;
+        margin: 20px auto 100px auto;
+    }
+    
+    nav {
+        width: 25%;
+        float: left;
+    }
+    
+    section {
+        width: 74%;
+        float: right;
+    }
+    
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : portrait) {
+
+    img {
+        width: 5%;
+    }
+    
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+    
+    body {
+        width: 960px;
+        margin: 20px auto 100px auto;
+    }
+
+    nav {
+        width: 25%;
+        float: left;
+    }
+    
+    section {
+        width: 74%;
+        float: right;
+    }
+    
+    footer {
+        background: #eee;
+        float: left;
+        width: 100%;
+        padding: 1em;
+        font-size: 90%;
+    }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+/* Styles */
+    img {
+        width: 5%;
+    }
+}
+
+/* COMMON */
+#form {
+    display: none;
+}
+    
 div.entry {
-	font-size: 100%;
 	font-family: "Open Sans", sans-serif;
     border-bottom:  2px #e2e2e2 solid;
     -webkit-transition: all 0.5s ease-in-out;
@@ -22,38 +134,32 @@ div.entry {
 #addTextForm, div.entry {
     background: #eee; 
 	color: #f90;
-	padding: 1em;
+	padding: 1em 1em 1em 1em;
 }
 
 h2 {
    margin: 0em; 
    float: left;
-    width: 97%;
+   width: 92%;
 }
 
-.selected {
+
+div.selected {
     background: #f90;
+}
+
+.selected h2 {
     color: white;
     font-weight: bold;
 }
 
-img {
-    width: 3%;
-    float: right;
-    margin-top: 1em;
-}
-
 article {
-    width: 100%
-}
-
-
-.first {
-    border-top:  2px #e2e2e2 solid
+    margin: 0.3em 0em;
 }
 
 p {
     display: none;
+    padding-left: 1em;
 }
 
 p.default {
@@ -78,16 +184,28 @@ a.addBtn {
 }
 
 .addBtn {
-    color: #eee;
+    color: white;
     background: #f90;
     text-decoration: none;
-    padding: 0.5em 1em;
+    padding: 0.5em 2em;
     border: 2px solid #000;
     border-radius: 5px; 
 }
 
+.addBtnSecond {
+    background: grey;
+}
+
 .addBtn, h1 {
     text-align: center;
+}
+
+.location, #geoLocation {
+    color: grey;
+    font-size: 70%;
+    display: block;
+    width: 100%;
+    float: left;
 }
 
 label {
@@ -96,9 +214,8 @@ label {
 
 input {
     width: 100%;
-    border: 1px dotted #666;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 textarea {
@@ -106,3 +223,12 @@ textarea {
     height: 150px;
     font-size: 1em;
 }
+
+section {
+    margin-bottom: 2em;
+}
+
+
+
+
+/* --------END OF COMMON ----------- */

@@ -13,56 +13,64 @@ $(document).ready(function(){
         '"body": "There are currently no entries in this diary, but go ahead and add one — it will be AWESOME!!!"}]';
     
     $("section").on("click", "div", function(evnt) {
-        console.log("clicked");
-        $(this).children('h2').toggleClass('selected');
+        $(this).toggleClass('selected');
         $(this).next('p').slideToggle(300);
     })
-    
-    $('#addTextForm').hide(); 
-    
+        
     $('a').click(function(){
-        $(this).hide();
-        $('#addTextForm').show();
+        $('#addTextForm').parent().show();
+        determineLocation();
         $('input').focus();
     });
     
     $('#submit').click(function(){
         submitEntry();
-        $('a').show();
-        $('#addTextForm').hide();
+        //$('a').show();
+        $('#addTextForm').parent().hide();
     })
     
     $('#cancel').click(function(){
         $('a').show();
-        $('#addTextForm').hide();
+        $('#addTextForm').parent().hide();
     })
     
     $("section").on("click", "img", function(evnt) {
-        $(this).parents('article').remove();
-        console.log("img");
+        var li = $(this).parents('li');
+        var current = localStorage.getItem('data');
+        var parsed = JSON.parse(current);
+        console.log(li.index());
+        parsed.splice(li.index(), 1);
+        li.remove();
+        localStorage.setItem('data', JSON.stringify(parsed));
     })
     
     
     function showEntries() {
+        //localStorage.clear();
         var data = localStorage.getItem('data');
         if (data) {
             data = JSON.parse(data);
             var $posts = $('#posts');
             $posts.empty();
             $.each(data, function(i, post){
+                var li = '<li></li>';
                 var article = '<article class="entry"></article>';
                 var div = '<div class="entry"></div>';
                 var h2 = '<h2></h2>';
                 var img = '<img src="images/remove.png"></img>';
+                var span = '<span class="location"></span>'
                 var parf = '<p></p>';
+                var $li = $(li);
                 var $article = $(article);
                 var $h2 = $(h2);
                 var $div = $(div);
                 $(h2).text(post.subject).appendTo($div);
                 $(img).appendTo($div);
+                $(span).text(post.location).appendTo($div);
                 $div.appendTo($article);
                 $(parf).text(post.body).appendTo($article);
-                $article.appendTo($posts);
+                $article.appendTo($li);
+                $li.appendTo($posts);
             })
         }else{
             data = JSON.parse(defaultData2);
@@ -91,15 +99,16 @@ $(document).ready(function(){
         if (!body) {
             alert("Body is required");
             return;
-        }//
-        addEntry(subject, body);
+        }
+        
+        var location = $("#geoLocation").text();
+        addEntry(subject, body, location);
         resetEntryForm();
         showEntries();
     }
     
-    
-    
-    function addEntry(subject, body) {
+        
+    function addEntry(subject, body, location) {
         console.log("Adding an entry");
         var current;
         
@@ -109,17 +118,16 @@ $(document).ready(function(){
         }else {
             current = [];
         }
-        determineLocation();
+        
         var entry = {};
+        entry.location = location;
         entry.subject = subject;
         entry.body = body;
         current.unshift(entry);
         localStorage.setItem("data", JSON.stringify(current));
-        
-        
-    
     }
     
+
     function resetEntryForm() {
         $("#addTextForm input").val("");
         $("#addTextForm textarea").val("");
@@ -131,11 +139,16 @@ $(document).ready(function(){
             navigator.geolocation.getCurrentPosition(
                 function(position){
                     console.log(position);
-                    var geocoder = new google.maps.Geocoder();
+                    var date = moment().format('MMM Do YYYY, hh:mm:ss a');
                     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                    geocoder.geocode({'latLng': latlng}, function(results, status) {
-                        console.log(results);
-                        console.log(status);
+                    var geocoder = new google.maps.Geocoder();
+                    return geocoder.geocode({'latLng': latlng}, function(results, status){
+                        if(status === "OK"){
+                            var city = results[0].address_components[4].short_name;
+                            $('#geoLocation').text("at " + city + " on " + date);
+                        } else {
+                            throw "Geocoder failed due to: " + status;
+                        }
                     });
                 },
                 function (error) {

@@ -16,23 +16,33 @@
           <li><a href='#' class="addBtn">Add A Text Entry!</a></li>
         </ul>
     </nav>
+    <section id="form">
         <div id="addTextForm">
             <label for="subject">Subject</label>
             <input type="text" id="subject" />
             <label for="body">Body</label>
             <textarea id="bodoy"></textarea>
+            <p id="geoLocation"></p>
             <button id="submit" class="addBtn">Submit!!!</button>
-            <button id="cancel" class="addBtn">Cancel!!!</button>
+            <button id="cancel" class="addBtn addBtnSecond">Cancel!!!</button>
         </div>
-    <section id="posts" class="entries">
+    </section>
+    <section  class="entries">
+        <ul id="posts">
+        
+        </ul>
+<!--
       <article>
-        <h2 class="first">Wrote my first mobile application</h2>
+        <div>
+            <h2 class="first">Wrote my first mobile application</h2>
+            <p class="location">Mon Nov 11 2014 08:40 at London</p>
+            <img src="images/remove.png">
+        </div>
         <p>
           Today I wrote my first mobile application. It was great! I had huge amounts of fun, it was
           a lot easier than I expected, and I was so happy I spent the rest of the day celebrating.
         </p>
       </article> 
-<!--
       <article>
         <h2>Wrote another mobile application</h2>
         <p>
@@ -52,13 +62,13 @@
 -->
     </section>
         <footer>
-        © 2014 <a href='http://javierrubiolarred.blogspot.co.uk/' target='_blank' class='us'>Javier Rubio Larred</a>. All Rights Reserved.
+        <span>© 2014</span> <a href='http://javierrubiolarred.blogspot.co.uk/' target='_blank' class='us'>Javier Rubio Larred</a>. All Rights Reserved.
       </footer>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="chrome-extension://aadgmnobpdmgmigaicncghmmoeflnamj/ng-inspector.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="moment.js"></script>
     <script src="script.js" type="text/javascript"></script>
-
 
 
 </body></html>
