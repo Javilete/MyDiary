@@ -11,44 +11,60 @@
     body {
         font-size: 1em;
     }  
-    
-    h2 {
-        font-size: 1.4em;
-    }
         
     img {
         width: 8%;
     }
     
     footer {
-        background: #eee;
         float: left;
         width: 100%;
-        padding: 1em;
+        padding: 1em 0em;
         font-size: 75%;
     }
 }
 
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width : 321px) {
+    
+    body {
+        font-size: 1em;
+    }
+    
     img {
         width: 8%;
+    }
+    
+    .location, #geoLocation {
+        font-size: 70%;
+    }
+    
+    h2 {
+        font-size: 1.2em;
     }
 }
 
 /* Smartphones (portrait) ----------- */
-/*
 @media only screen and (max-width : 320px) {
+    body {
+        font-size: 1em;
+    }
+    
+    h2 {
+        font-size: 1.1em;
+    }
+    
+    .location, #geoLocation {
+        font-size: 70%;
+    }
 }
-*/
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-width : 768px) and (max-width : 1024px) {
     footer {
-        background: #eee;
         float: left;
         width: 100%;
-        padding: 1em;
+        padding: 1em 0em;
         font-size: 90%;
     }
 }
@@ -89,6 +105,11 @@
         width: 960px;
         margin: 20px auto 100px auto;
     }
+    
+    h1 {
+        font-size: 2em;
+        font-family: "Lobster", cursive;
+    }
 
     nav {
         width: 25%;
@@ -100,11 +121,19 @@
         float: right;
     }
     
+    img {
+        width: 5%;
+    }
+    
+    #documentation, .location, #geoLocation {
+        font-family: "Lobster", cursive;
+    }
+    
     footer {
-        background: #eee;
+        background: #f6e6b4;
         float: left;
         width: 100%;
-        padding: 1em;
+        padding: 1em 0em;
         font-size: 90%;
     }
 }
@@ -115,11 +144,37 @@
     img {
         width: 5%;
     }
+    
+    #documentation, .location, #geoLocation {
+        font-family: "Lobster", cursive;
+    }
+}
+
+body {
+    font-size: 1em;
 }
 
 /* COMMON */
+
+header {
+    border: 2px solid black;
+    padding: 1em;
+    border-radius: 20px;
+    background: -webkit-linear-gradient(top, white 0%,#f6e6b4 100%);
+}
+
+#documentation {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1em;
+    background-color: #f6e6b4;
+    font-family: "Lobster", cursive;
+
+}
+
 #form {
     display: none;
+    margin-top: 1em;
 }
     
 div.entry {
@@ -135,6 +190,7 @@ div.entry {
     background: #eee; 
 	color: #f90;
 	padding: 1em 1em 1em 1em;
+    cursor: pointer;
 }
 
 h2 {
@@ -146,6 +202,10 @@ h2 {
 
 div.selected {
     background: #f90;
+}
+
+.us {
+    color: #f90;
 }
 
 .selected h2 {
@@ -162,8 +222,12 @@ p {
     padding-left: 1em;
 }
 
-p.default {
-    display: block;
+.default p {
+    display: block;  
+}
+
+.default h2{
+    width: 100%;
 }
 
 ul {
@@ -179,7 +243,7 @@ button {
     display: inline;
 }
 
-a.addBtn {
+a.addBtn, label {
     display: block;
 }
 
@@ -202,14 +266,9 @@ a.addBtn {
 
 .location, #geoLocation {
     color: grey;
-    font-size: 70%;
     display: block;
     width: 100%;
     float: left;
-}
-
-label {
-    display: block;
 }
 
 input {
@@ -225,10 +284,16 @@ textarea {
 }
 
 section {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
+footer {
+    background-color: #f6e6b4;
+    border-radius: 5px;
+    margin-top: 1em;
+}
 
-
-
+footer div {
+    margin-left: 1em;
+}
 /* --------END OF COMMON ----------- */

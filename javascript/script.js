@@ -12,7 +12,7 @@ $(document).ready(function(){
     var defaultData2 = '[{"subject": "Welcome to my Diary!!!",' +
         '"body": "There are currently no entries in this diary, but go ahead and add one — it will be AWESOME!!!"}]';
     
-    $("section").on("click", "div", function(evnt) {
+    $("section").on("click", "div", function() {
         $(this).toggleClass('selected');
         $(this).next('p').slideToggle(300);
     })
@@ -57,7 +57,7 @@ $(document).ready(function(){
                 var article = '<article class="entry"></article>';
                 var div = '<div class="entry"></div>';
                 var h2 = '<h2></h2>';
-                var img = '<img src="images/remove.png"></img>';
+                var img = '<img src="../images/remove.png"></img>';
                 var span = '<span class="location"></span>'
                 var parf = '<p></p>';
                 var $li = $(li);
@@ -131,7 +131,7 @@ $(document).ready(function(){
     function resetEntryForm() {
         $("#addTextForm input").val("");
         $("#addTextForm textarea").val("");
-        $("#addTextForm").hide();
+        $("#addTextForm").parent().hide();
     }
     
     function determineLocation (){
